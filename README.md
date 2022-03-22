@@ -21,7 +21,7 @@ For more information about panels, refer to the documentation on [Panels](https:
 2. Build plugin in development mode or run in watch mode
 
    ```bash
-   yarn dev
+   yarn dev --skipLint
    ```
 
    or
@@ -33,7 +33,7 @@ For more information about panels, refer to the documentation on [Panels](https:
 3. Build plugin in production mode
 
    ```bash
-   yarn build
+   yarn build --skipLint
    ```
 
 ## Learn more
