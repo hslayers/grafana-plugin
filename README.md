@@ -6,13 +6,20 @@ This template is a starting point for building Grafana Panel Plugins in Grafana 
 
 ## Grafana config
 
-Currently the plugin is not signed so add:
+Currently the plugin is not signed so set in grafana.ini:
 ```
 [plugins]
 enable_alpha = true
 allow_loading_unsigned_plugins = "hslayers-grafana"
 ```
 
+and restart grafana `sudo systemctl restart grafana`
+
+In grafana.log should see
+```
+logger=plugin.signature.validator t=2022-03-22T16:44:43.78+0200 lvl=warn msg="Permitting unsigned plugin. This is not recommended" pluginID=hslayers-grafana pluginDir=/var/lib/grafana/plugins/my-plugin/dist
+logger=plugin.manager t=2022-03-22T16:44:43.78+0200 lvl=info msg="Plugin registered" pluginId=hslayers-grafana
+```
 
 ## Getting started
 
