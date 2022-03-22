@@ -4,11 +4,15 @@
 
 This template is a starting point for building Grafana Panel Plugins in Grafana 7.0+
 
-## What is Grafana Panel Plugin?
+## Grafana config
 
-Panels are the building blocks of Grafana. They allow you to visualize data in different ways. While Grafana has several types of panels already built-in, you can also build your own panel, to add support for other visualizations.
+Currently the plugin is not signed so add:
+```
+[plugins]
+enable_alpha = true
+allow_loading_unsigned_plugins = "hslayers-grafana"
+```
 
-For more information about panels, refer to the documentation on [Panels](https://grafana.com/docs/grafana/latest/features/panels/panels/)
 
 ## Getting started
 
