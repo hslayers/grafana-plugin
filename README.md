@@ -18,7 +18,7 @@ cd hslayers-grafana
    yarn install
    ```
    
-1.1. Currently needs to be compiled agains a special hslayers branch https://github.com/hslayers/hslayers-ng/tree/enable-source-maps
+1.1. Currently needs to be compiled against a special hslayers branch where app bundle code is not minified: https://github.com/hslayers/hslayers-ng/tree/enable-source-maps
 This checkout hslayers at this branch and in hslayers repo directory do `npm run build-app && cd dist/hslayers-app && npm link` and inside hslayers-graphana directory do `npm link hslayers-app`
 
 2. Build plugin in development mode or run in watch mode
