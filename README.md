@@ -1,4 +1,4 @@
-# Grafana Panel Plugin Template
+# HSLayers grafana plugin
 
 [![Build](https://github.com/grafana/grafana-starter-panel/workflows/CI/badge.svg)](https://github.com/grafana/grafana-starter-panel/actions?query=workflow%3A%22CI%22)
 
