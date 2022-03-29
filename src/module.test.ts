@@ -1,6 +1,6 @@
 declare namespace JSX {
   interface IntrinsicElements {
-    'hslayers-app': any
+    'hslayers-app': any;
   }
 }
 // Just a stub test

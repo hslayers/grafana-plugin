@@ -11,7 +11,8 @@ import 'hslayers-ng-app/styles.css';
 interface Props extends PanelProps<SimpleOptions> {}
 
 export const SimplePanel: React.FC<Props> = ({ options, data, width, height }) => {
-  const styles = getStyles({width, height});
+  const styles = getStyles({ width, height });
+  eval(options.hslayerConfigFn);
   return (
     <div
       className={cx(
@@ -22,16 +23,15 @@ export const SimplePanel: React.FC<Props> = ({ options, data, width, height }) =
         `
       )}
     >
-      <hslayers-app style={{width: width + 'px', height: height + 'px'}}></hslayers-app>
+      <hslayers-app style={{ width: width + 'px', height: height + 'px' }}></hslayers-app>
     </div>
   );
 };
 
-const getStyles = stylesFactory(({ width, height}) => {
+const getStyles = stylesFactory(({ width, height }) => {
   return {
     wrapper: css`
       position: relative;
     `,
-    };
+  };
 });
-

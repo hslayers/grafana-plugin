@@ -24,7 +24,7 @@ This checkout hslayers at this branch and in hslayers repo directory do `npm run
 2. Build plugin in development mode or run in watch mode
 
    ```bash
-   yarn dev --skipLint
+   yarn dev
    ```
 
    or
@@ -39,6 +39,29 @@ This checkout hslayers at this branch and in hslayers repo directory do `npm run
    yarn build --skipLint
    ```
 
+4. HsLayers panel configuration is done by providing a global function source-code which gets eval-ed on plugin creation. Its is done in the panel configuration options. See example code:
+
+```
+window.hslayersNgConfig = function(ol) {
+        return {
+          default_layers: [
+            new ol.layer.Tile({
+              source: new ol.source.OSM(),
+              title: "OpenStreetMap",
+              base: true,
+              visible: true,
+              removable: false
+            })
+          ],
+    
+          default_view: new ol.View({
+            center: ol.proj.fromLonLat([17.474129, 52.574000]),
+            zoom: 4,
+            units: "m"
+          })
+        }
+      }
+```
 ## Grafana config
 
 Currently the plugin is not signed so set in grafana.ini:

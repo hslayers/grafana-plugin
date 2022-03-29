@@ -5,42 +5,37 @@ import { SimplePanel } from './SimplePanel';
 // eslint-disable-next-line @typescript-eslint/no-namespace
 declare namespace JSX {
   interface IntrinsicElements {
-    'hslayers-app': any
+    'hslayers-app': any;
   }
 }
 export const plugin = new PanelPlugin<SimpleOptions>(SimplePanel).setPanelOptions((builder) => {
   return builder
     .addTextInput({
-      path: 'text',
-      name: 'Simple text option',
-      description: 'Description of panel option',
-      defaultValue: 'Default value of text input option',
-    })
-    .addBooleanSwitch({
-      path: 'showSeriesCount',
-      name: 'Show series counter',
-      defaultValue: false,
-    })
-    .addRadio({
-      path: 'seriesCountSize',
-      defaultValue: 'sm',
-      name: 'Series counter size',
+      path: 'hslayerConfigFn',
+      name: 'HSlayers config function',
+      description: 'Javascript code providing global function for configuring HSlayers',
+      defaultValue: `window.hslayersNgConfig = function(ol) {
+        return {
+          default_layers: [
+            new ol.layer.Tile({
+              source: new ol.source.OSM(),
+              title: "OpenStreetMap",
+              base: true,
+              visible: true,
+              removable: false
+            })
+          ],
+    
+          default_view: new ol.View({
+            center: ol.proj.fromLonLat([17.474129, 52.574000]),
+            zoom: 4,
+            units: "m"
+          })
+        }
+      }`,
       settings: {
-        options: [
-          {
-            value: 'sm',
-            label: 'Small',
-          },
-          {
-            value: 'md',
-            label: 'Medium',
-          },
-          {
-            value: 'lg',
-            label: 'Large',
-          },
-        ],
-      },
-      showIf: (config) => config.showSeriesCount,
-    });
+        useTextarea:true,
+        rows: 10,
+    }
+    })
 });
